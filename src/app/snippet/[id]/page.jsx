@@ -15,12 +15,6 @@ const detailsPage = async ({ params }) => {
     })
 
     const deleteSnippetsActions = actions.deleteSnippet.bind(null, snippet.id)
-    
-        // const handleDelete = async (event) => {
-        //     event.preventDefault();
-        //     const response = await saveSnippet(snippet.id, code);
-        //     console.log("Save response:", response);
-        // };
 
     return (
         <div className='flex flex-col gap-2'>
