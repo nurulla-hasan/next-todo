@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { prisma } from '@/lib/prisma';
-import React from 'react';
+import Link from 'next/link';
+import * as actions from "@/actions"
+
 
 const detailsPage = async ({ params }) => {
 
@@ -11,6 +13,15 @@ const detailsPage = async ({ params }) => {
             id
         }
     })
+
+    const deleteSnippetsActions = actions.deleteSnippet.bind(null, snippet.id)
+    
+        // const handleDelete = async (event) => {
+        //     event.preventDefault();
+        //     const response = await saveSnippet(snippet.id, code);
+        //     console.log("Save response:", response);
+        // };
+
     return (
         <div className='flex flex-col gap-2'>
             <div className=' flex justify-between items-center'>
@@ -18,8 +29,11 @@ const detailsPage = async ({ params }) => {
                     <h1 className='font-bold'>{snippet?.title}</h1>
                 </div>
                 <div className='flex items-center gap-2'>
-                    <Button>Edit</Button>
-                    <Button variant={"destructive"}>Delete</Button>
+                    <Link href={`/snippet/${snippet.id}/edit`}><Button>Edit</Button></Link>
+
+                    <form action={deleteSnippetsActions}>
+                        <Button variant={"destructive"} type='submit'>Delete</Button>
+                    </form>
                 </div>
             </div>
             <pre className=' p-3 bg-gray-200 rounded border-gray-200'>
