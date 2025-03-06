@@ -13,6 +13,8 @@ pnpm dev
 # or
 bun dev
 ```
+## Live Link
+[![Live Site](https://img.shields.io/badge/View-Live_Site-green?style=for-the-badge)](https://next-todo-git-main-golap-hasans-projects.vercel.app/)
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
